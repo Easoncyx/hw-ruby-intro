@@ -36,19 +36,48 @@ end
 # Part 2
 
 def hello(name)
-  # YOUR CODE HERE
+  return "Hello, " + name
 end
 
 def starts_with_consonant? s
-  # YOUR CODE HERE
+  # /^[b-df-hj-np-tv-z]/i.match(s) != nil
+  if s =~ /\A[^AEIOUaeiou]/ and s =~ /\A[[:alpha:]]/
+    return true
+  else
+    return false
+  end
 end
 
 def binary_multiple_of_4? s
-  # YOUR CODE HERE
+  return true if s == '0'
+  if s =~ /^[10]*00$/
+    return true
+  else
+    return false
+  end
 end
 
 # Part 3
 
 class BookInStock
-# YOUR CODE HERE
+  def initialize(isbn, price)
+    raise ArgumentError if isbn.length == 0 || price <= 0
+    @isbn = isbn
+    @price = price
+  end
+  def price_as_string
+    "$%.2f" % @price
+  end
+  def isbn
+    @isbn
+  end
+  def isbn=(isbn)
+    @isbn = isbn
+  end
+  def price
+    @price
+  end
+  def price=(price)
+    @price = price
+  end
 end
