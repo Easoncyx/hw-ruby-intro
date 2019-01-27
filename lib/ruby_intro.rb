@@ -3,15 +3,34 @@
 # Part 1
 
 def sum arr
-  # YOUR CODE HERE
+  sum = 0
+  arr.each{|num| sum = sum + num}
+  sum
 end
 
 def max_2_sum arr
-  # YOUR CODE HERE
+  if arr.length == 1
+    return arr[0]
+  elsif arr.length == 0
+    return 0
+  end
+  arr = arr.sort
+  return arr[-2] + arr[-1]
 end
 
 def sum_to_n? arr, n
-  # YOUR CODE HERE
+  if arr.length == 0 || arr.length == 1
+    return false
+  end
+  dic = {}
+  0.upto(arr.length - 1) do |i|
+    if dic.key?(arr[i])
+      return true
+    else
+      dic[n-arr[i]] = i
+    end
+  end
+  return false
 end
 
 # Part 2
